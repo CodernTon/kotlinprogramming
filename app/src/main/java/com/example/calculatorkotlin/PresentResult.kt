@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_presentresult.*
 import net.objecthunter.exp4j.ExpressionBuilder
+import java.lang.System.err
 
 class PresentResult : AppCompatActivity() {
 
@@ -48,7 +49,7 @@ class PresentResult : AppCompatActivity() {
                     result.text = tempResult.toString()
 
             } catch (e: Exception){
-
+                err.print("Smth wrong")
             }
         }
     }
@@ -86,6 +87,7 @@ class PresentResult : AppCompatActivity() {
         divide.setOnClickListener {appendOnExpression("/", true)}
         leftParantesis.setOnClickListener {appendOnExpression("(", true)}
         rightParantesis.setOnClickListener {appendOnExpression(")", true)}
+        dot.setOnClickListener{appendOnExpression(".",true)}
     }
     fun appendOnExpression(string : String, canClear : Boolean){
         if (canClear){
